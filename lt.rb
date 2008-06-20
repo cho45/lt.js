@@ -175,6 +175,12 @@ Any sufficiently designed DSL is indistinguishable from host language.
 
 高度に発達した DSL はホスト言語と見分けがつかない
 
+*
+
+Any sufficiently designed DSL is indistinguishable from NEW language.
+
+高度に発達した DSL は新言語と見分けがつかない
+
 
 *
 ><div class="title-leaf"><
