@@ -89,9 +89,63 @@ Introducing to net-irc
 - Don't use observer design pattern
 - Wrote prettily
 
+
+* Violate RFC
+
+- no restriction on nick length
+-- RFC restrict nick length to 9 chars
+- allow utf-8 nick
+-- allow multibyte string
+- (extendable MODE parser)
+-- (working)
+
+* Don't use observer
+
+- Observer pattern
+-- in the end, must write event dispatcher
+- on_<var>event</var> is popular
+- no more charms
+
+* Wrote prettily
+
+Write to server socket:
+
+>||
+post PRIVMSG, '#foo', 'msg'
+post NOTICE,  '#foo', 'msg'
+||<
+
+
 * Sample Client
 
+>||
+class SimpleClient < Net::IRC::Client
+  def on_privmsg(m)
+    super
+    post NOTICE, m[0], m[1] # echo
+  end
+end
+
+SimpleClient.new("host", 6667, {
+  :nick => "foobartest",
+  :user => "foobartest",
+  :real => "foobartest",
+}).start
+||<
+
+
 * Sample Server
+
+>||
+class Sample < Net::IRC::Server::Session
+  def on_privmsg(m)
+    super
+    post "foo!foo@host", NOTICE, m[0], m[1] # echo
+  end
+end
+
+Net::IRC::Server.new(opts[:host], opts[:port], Sample, opts).start
+||<
 
 *
 ><div class="title-leaf"><
@@ -217,3 +271,7 @@ http://coderepos.org/share/wiki/Citrus
 - Supports gettext
 - Has dynamic re-loading plugins
 
+
+* End
+
+Thank you
