@@ -157,16 +157,24 @@ Can't understand the purpose at first view.
 - Writable!
 -- not relying on reference
 
+* DSL's problems
+
+- hard to trace process
+- hard to know Class defining the method
+- IT IS A LANGUAGE.
+-- It is difficult to design a language.
+
 *
 
-...
+Good DSL is not aware that it is DSL.
 
 
 *
 
 Any sufficiently designed DSL is indistinguishable from host language.
 
-高度に発展した DSL はホスト言語と見分けがつかない
+高度に発達した DSL はホスト言語と見分けがつかない
+
 
 *
 ><div class="title-leaf"><
