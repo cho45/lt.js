@@ -4,32 +4,6 @@ require "rubygems"
 require "hparser"
 require "pp"
 
-require 'hparser/block/pair'
-require 'hparser/block/collectable'
-
-
-class HParser::Block::RAW < HParser::Parser::Pair
-	include HParser::Parser::Collectable
-
-	def self.parse(scanner, inlines)
-		if scanner.scan(/^></)
-			content = scanner.matched
-			until content.match(/><$/)
-				content << "\n" << scanner.scan(/.*/)
-			end
-			self.new content[1..-2]
-		end
-	end
-
-	def self.<=>(o)
-		-2
-	end
-
-	def to_html
-		@content
-	end
-end
-
 parsed   = HParser::Parser.new.parse(File.read(__FILE__)[/__END__\n([\s\S]+)/, 1])
 
 sections = parsed.inject([[]]) do |r,element|
@@ -90,6 +64,7 @@ __END__
 
 + Introducing to net-irc
 + About the DSL (or something DSL-ish)
++ DSL in the language
 + Applications using net-irc
 
 ><!--
@@ -114,6 +89,84 @@ Introducing to net-irc
 - Don't use observer design pattern
 - Wrote prettily
 
+* Sample Client
+
+* Sample Server
+
+*
+><div class="title-leaf"><
+About the DSL
+></div><
+
+* It's DSL
+
+>||
+# client
+post PRIVMSG, "#foo", "bar"
+
+# server
+post nil, PRIVMSG, "#foo", "bar
+||<
+
+
+* Effective utilzation of Constant
+
+>||
+PRIVMSG     = 'PRIVMSG'
+NOTICE      = 'NOTICE'
+...
+RPL_WELCOME = '001'
+||<
+
+I don't want to use String.
+
+- It mades typo.
+- It is not pretty.
+
+*
+><div class="title-leaf"><
+DSL in the language
+></div><
+
+* DSL bad example
+
+- scrAPI
+
+>||
+ebay_auction = Scraper.define do
+  process "h3.ens>a",             :description=>:text, :url=>"@href"
+  process "td.ebcPr>span",        :price=>:text
+  process "div.ebPicture>a>img",  :image=>"@src"
+  result :description, :url, :price, :image
+end
+||<
+
+Can't understand the purpose at first view.
+
+* DSL bad example - scrAPI
+
+- what is second argument of process
+- need to look the reference
+- lerning cost > convenience
+
+
+* DSL requires...
+
+- Readable!
+-- not requires precedent
+- Writable!
+-- not relying on reference
+
+*
+
+...
+
+
+*
+
+Any sufficiently designed DSL is indistinguishable from host language.
+
+高度に発展した DSL はホスト言語と見分けがつかない
 
 *
 ><div class="title-leaf"><
@@ -123,12 +176,30 @@ Applications using net-irc
 
 * mini-blog IRC gateways
 
-- Twitter (tig.rb)
+- Twitter (tig.rb) like TIG
 - Wassr (wig.rb)
 - Nowa (nig.rb)
 
-* Lingr IRC gateways
+Suitable for practical use!
+
+Distributed with net-irc. (examples/)
+
+* Lingr IRC gateway
+
+- Using Linger API
+
+Suitable for practical use!
+
+Distributed with net-irc. (examples/)
+
 
 * Citrus IRC BOT framework
 
+>||
+http://coderepos.org/share/wiki/Citrus
+||<
+
+- Has testing framework (using rspec)
+- Supports gettext
+- Has dynamic re-loading plugins
 
