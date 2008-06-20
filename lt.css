@@ -1,0 +1,189 @@
+
+
+html {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+body {
+	/* 800x600 にしたときの基準フォントサイズ */
+	font-size: 20px;
+	background: #000;
+	color: #efefef;
+	overflow: hidden;
+	line-height: 2;
+	background: #000 url("images/javascript-study-meeting.png") no-repeat 0 center;
+}
+
+a:link ,
+a:visited {
+	color: #fb6b06;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ol, 
+ul {
+	padding: 0 0 0 1.5em;
+}
+
+ol li,
+ul li {
+	margin: 0;
+}
+
+hr {
+	padding: 0;
+	color: #666;
+	background: #666;
+}
+
+#top {
+	display: none;
+}
+
+#whole {
+	width: 100%;
+	height: 100%;
+}
+
+#content {
+}
+
+.slide {
+	position: absolute;
+	border: 1px solid #174c16;
+	background: #000;
+	overflow: auto;
+}
+
+.slide * {
+	margin: 0 5%;
+}
+
+.slide * * {
+	margin: 0;
+}
+
+.slide hr {
+	margin: 0.2em 5%;
+}
+
+.slide p {
+	padding: 0.2em 0;
+	text-indent: 0;
+}
+
+.slide p.img {
+	text-align: center;
+}
+
+.slide img {
+	margin: 0;
+	padding: 0;
+	text-indent: 0;
+}
+
+.slide dl dd {
+	margin: 0 0 0 2em;
+}
+
+.slide em {
+	font-weight: bold;
+	font-style: normal;
+	color: #990000;
+}
+
+.slide h2 {
+	border-style: solid;
+	border-color: #333;
+	border-width: 0 0 1px 0;
+	margin-bottom: 0.5em;
+}
+
+.slide pre {
+	line-height: 1.5;
+	overflow: hidden;
+	background: #222;
+	margin: 0.5em 5%;
+	padding: 0 0.5em;
+	font-size: 80%;
+}
+
+.slide pre em {
+	color: #fff;
+}
+
+.slide pre code {
+	display: block;
+}
+
+.slide pre code.runnable {
+	display: block;
+	background: url("images/click-to-run.gif") no-repeat bottom right;
+}
+
+.slide .mini {
+	font-size: 80%;
+}
+
+.slide .strong {
+	font-size: bold;
+	text-align: center;
+	font-size: 300%;
+}
+
+.slide .strong .mini {
+	font-size: bold;
+	text-align: center;
+	font-size: 30%;
+}
+
+.slide blockquote {
+	font-size: 80%;
+	background: #333;
+	padding: 0 1em;
+}
+
+.slide p.cite {
+	text-align: right;
+	font-size: 80%;
+}
+
+.slide .copyright {
+	font-size: 70%;
+	color: #666;
+	text-align: right;
+}
+
+#Lt-information {
+	background: #444;
+	padding: 0.6em 1em;
+}
+
+#Lt-pageindex a {
+	text-decoration: none;
+	display: block;
+	color: #fff;
+	border: 1px solid #333;
+	padding: 1em;
+	margin: 0.5em;
+	font-weight: bold;
+}
+
+#Lt-pageindex a:hover {
+	background: #444;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	right: 100px;
+	text-indent: -10000px;
+	overflow: hidden;
+	width: 100%;
+	height: 100px;
+}
