@@ -2,9 +2,35 @@
 
 require "rubygems"
 require "hparser"
+require "pp"
+
+require 'hparser/block/pair'
+require 'hparser/block/collectable'
 
 
-parsed =  HParser::Parser.new.parse(File.read(__FILE__)[/__END__\n([\s\S]+)/, 1])
+class HParser::Block::RAW < HParser::Parser::Pair
+	include HParser::Parser::Collectable
+
+	def self.parse(scanner, inlines)
+		if scanner.scan(/^></)
+			content = scanner.matched
+			until content.match(/><$/)
+				content << "\n" << scanner.scan(/.*/)
+			end
+			self.new content[1..-2]
+		end
+	end
+
+	def self.<=>(o)
+		-2
+	end
+
+	def to_html
+		@content
+	end
+end
+
+parsed   = HParser::Parser.new.parse(File.read(__FILE__)[/__END__\n([\s\S]+)/, 1])
 
 sections = parsed.inject([[]]) do |r,element|
 	element.instance_variable_set(:@level, element.level + 1) if element.kind_of?(HParser::Block::Head)
@@ -18,9 +44,12 @@ end
 
 require "erb"
 
-ERB.new(<<'EOS').run(binding)
+
+ERB.new(<<'EOS', $SAFE, "<>").run(binding)
+<% if ENV['REQUEST_METHOD'] %>
 Content-Type: text/html
 
+<% end %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -63,6 +92,43 @@ __END__
 + About the DSL (or something DSL-ish)
 + Applications using net-irc
 
-* Fo
+><!--
+comment
+--><
 
-aaaa
+*
+><div class="title-leaf"><
+Introducing to net-irc
+></div><
+
+* What is net-irc?
+
+- Is yet another IRC library
+- Forked from RICE by akira yamada
+- Has both Client and Server
+
+
+* Changes from RICE
+
+- Violate RFC for practical issue
+- Don't use observer design pattern
+- Wrote prettily
+
+
+*
+><div class="title-leaf"><
+Applications using net-irc
+></div><
+
+
+* mini-blog IRC gateways
+
+- Twitter (tig.rb)
+- Wassr (wig.rb)
+- Nowa (nig.rb)
+
+* Lingr IRC gateways
+
+* Citrus IRC BOT framework
+
+

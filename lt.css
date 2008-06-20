@@ -159,6 +159,14 @@ hr {
 	text-align: right;
 }
 
+.slide div.title-leaf {
+	padding: 20% 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: 150%;
+	white-space: nowrap;
+}
+
 #Lt-information {
 	background: #444;
 	padding: 0.6em 1em;
