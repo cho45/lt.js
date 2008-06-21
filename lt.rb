@@ -60,12 +60,18 @@ EOS
 
 __END__
 
+* net-irc
+
+- cho45
+- http://www.lowreal.net/
+
 * Agenda
 
 + Introducing to net-irc
++ Applications using net-irc
++ Citrus IRC BOT framework
 + About the DSL (or something DSL-ish)
 + DSL in the language
-+ Applications using net-irc
 
 ><!--
 comment
@@ -115,6 +121,8 @@ post PRIVMSG, '#foo', 'msg'
 post NOTICE,  '#foo', 'msg'
 ||<
 
+All commands are defined as constant.
+
 
 * Sample Client
 
@@ -146,6 +154,46 @@ end
 
 Net::IRC::Server.new(opts[:host], opts[:port], Sample, opts).start
 ||<
+
+*
+><div class="title-leaf"><
+Applications using net-irc
+></div><
+
+
+* mini-blog IRC gateways
+
+- Twitter (tig.rb) like TIG
+- Wassr (wig.rb)
+- Nowa (nig.rb)
+
+Suitable for practical use!
+
+Distributed with net-irc. (examples/)
+
+* Lingr IRC gateway
+
+- Using Linger API
+
+Suitable for practical use!
+
+Distributed with net-irc. (examples/)
+
+
+* Citrus IRC BOT framework
+
+>||
+http://coderepos.org/share/wiki/Citrus
+||<
+
+- Has testing framework (using rspec)
+- Supports gettext
+- Has dynamic re-loading plugins
+
+* Citrus
+
+- Sample: chokan @freenode (registered)
+
 
 *
 ><div class="title-leaf"><
@@ -181,6 +229,24 @@ I don't want to use String.
 ><div class="title-leaf"><
 DSL in the language
 ></div><
+
+
+* ...
+
+>||
+post PRIVMSG, "#foo", "bar"
+||<
+
+DSL...?
+
+Maybe not.
+
+*
+
+At first, I try to make DSL.
+
+But I assessed that DSL is irrelevance for this library..
+
 
 * DSL bad example
 
@@ -235,41 +301,6 @@ Any sufficiently designed DSL is indistinguishable from NEW language.
 
 高度に発達した DSL は新言語と見分けがつかない
 
-
-*
-><div class="title-leaf"><
-Applications using net-irc
-></div><
-
-
-* mini-blog IRC gateways
-
-- Twitter (tig.rb) like TIG
-- Wassr (wig.rb)
-- Nowa (nig.rb)
-
-Suitable for practical use!
-
-Distributed with net-irc. (examples/)
-
-* Lingr IRC gateway
-
-- Using Linger API
-
-Suitable for practical use!
-
-Distributed with net-irc. (examples/)
-
-
-* Citrus IRC BOT framework
-
->||
-http://coderepos.org/share/wiki/Citrus
-||<
-
-- Has testing framework (using rspec)
-- Supports gettext
-- Has dynamic re-loading plugins
 
 
 * End
