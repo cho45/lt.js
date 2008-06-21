@@ -92,6 +92,22 @@ Introducing to net-irc
 
 - irssi user
 - window number -> 54 (not channel num)
+- IRC addict
+
+* ...
+
+I want to watch all information by IRC.
+
+- twitter...
+- lingr...
+- server log...
+- recent hatena star...
+
+* ...
+
+But there were no library to write IRC server easily...
+
+And I made it.
 
 
 * What is net-irc?
@@ -99,7 +115,7 @@ Introducing to net-irc
 - http://lowreal.rubyforge.org/net-irc/
 
 - Is IRC library
-- Forked from RICE by akira yamada
+- Parser from  RICE by akira yamada
 - Has both Client and Server
 
 
@@ -323,6 +339,8 @@ end
 ||<
 
 Can't understand the purpose at first view.
+
+某所で scrAPI なコードをメンテしたとき発狂しそうだった
 
 * DSL bad example - scrAPI
 
