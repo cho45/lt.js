@@ -268,9 +268,47 @@ Can't understand the purpose at first view.
 - what is second argument of process
 - need to look the reference
 - lerning cost > convenience
+- mechanize and hpricot is better
 
 
-* DSL requires...
+* DSL good examples
+
+- Rake
+- RSpec
+
+
+* DSL good examples - Rake
+
+>||
+desc "Publish to RubyForge"
+task :rubyforge => [:rdoc, :package] do
+  require 'rubyforge'
+  Rake::RubyForgePublisher.new(RUBYFORGE_PROJECT, 'fobar').upload
+end
+||<
+
+Good example of hash arrow to represent dependency.
+
+
+* DSL good examples - RSpec
+
+>||
+obj.should == "foo"
+foo.should be_true
+||<
+
+Easy to read, easy to write.
+
+
+* DSL good examples
+
+- Rake
+- RSpec
+
+Can understand the purpose at first view!
+
+
+* So, DSL requires...
 
 - Readable!
 -- not requires precedent
@@ -284,16 +322,6 @@ Can't understand the purpose at first view.
 - IT IS A LANGUAGE.
 -- It is difficult to design a language.
 
-*
-
-Good DSL is not aware that it is DSL.
-
-
-*
-
-Any sufficiently designed DSL is indistinguishable from host language.
-
-高度に発達した DSL はホスト言語と見分けがつかない
 
 *
 
@@ -301,6 +329,10 @@ Any sufficiently designed DSL is indistinguishable from NEW language.
 
 高度に発達した DSL は新言語と見分けがつかない
 
+
+*
+
+DSL のご利用は計画的に
 
 
 * End
