@@ -64,6 +64,7 @@ __END__
 
 - cho45
 - http://www.lowreal.net/
+- from Subtech
 
 * Agenda
 
@@ -77,6 +78,7 @@ __END__
 comment
 --><
 
+
 *
 ><div class="title-leaf"><
 Introducing to net-irc
@@ -84,7 +86,9 @@ Introducing to net-irc
 
 * What is net-irc?
 
-- Is yet another IRC library
+- http://lowreal.rubyforge.org/net-irc/
+
+- Is IRC library
 - Forked from RICE by akira yamada
 - Has both Client and Server
 
@@ -122,6 +126,8 @@ post NOTICE,  '#foo', 'msg'
 ||<
 
 All commands are defined as constant.
+
+Use RFC as reference instead of net-irc reference.
 
 
 * Sample Client
@@ -195,6 +201,43 @@ http://coderepos.org/share/wiki/Citrus
 - Sample: chokan @freenode (registered)
 
 
+* Citrus plugin
+
+- Plugin tests are in same file!
+- Use RSpec
+- DummyCore class for test
+
+- http://lab.lowreal.net/test/citrus/
+
+
+* Citrus plugin
+
+>||
+class SimpleReply < Citrus::Plugin
+  def on_privmsg(prefix, channel, message)
+    # do...
+  end
+end
+
+test do
+  # run when test
+  describe SimpleReply do
+    before :all do
+      @core   = DummyCore.new({})
+      @socket = @core.socket
+
+      @plugin = SimpleReply.new(@core, {
+        "SimpleReply" => { config }
+      })
+    end
+
+    it "should ..." do
+    end
+  end
+end
+||<
+
+
 *
 ><div class="title-leaf"><
 About the DSL
@@ -207,7 +250,7 @@ About the DSL
 post PRIVMSG, "#foo", "bar"
 
 # server
-post nil, PRIVMSG, "#foo", "bar
+post prefix, PRIVMSG, "#foo", "bar
 ||<
 
 
@@ -243,7 +286,7 @@ Maybe not.
 
 *
 
-At first, I try to make DSL.
+Often, I try to make DSL.
 
 But I assessed that DSL is irrelevance for this library..
 
@@ -332,7 +375,7 @@ Any sufficiently designed DSL is indistinguishable from NEW language.
 
 *
 
-DSL のご利用は計画的に
+Think before using DSL!
 
 
 * End
