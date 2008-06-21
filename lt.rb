@@ -65,6 +65,10 @@ __END__
 - cho45
 - http://www.lowreal.net/
 - from Subtech
+- google 「ちんこ演算子の人」
+
+love git.
+
 
 * Agenda
 
@@ -83,6 +87,12 @@ comment
 ><div class="title-leaf"><
 Introducing to net-irc
 ></div><
+
+* My IRC status
+
+- irssi user
+- window number -> 54 (not channel num)
+
 
 * What is net-irc?
 
@@ -171,7 +181,7 @@ Applications using net-irc
 
 - Twitter (tig.rb) like TIG
 - Wassr (wig.rb)
-- Nowa (nig.rb)
+- Nowa (nig.rb) すいませんまだ使ってません
 
 Suitable for practical use!
 
@@ -185,6 +195,12 @@ Suitable for practical use!
 
 Distributed with net-irc. (examples/)
 
+でもたまに切れる。
+
+*...
+
+examples なのはテスト書くのがめんどうだから……
+
 
 * Citrus IRC BOT framework
 
@@ -195,6 +211,8 @@ http://coderepos.org/share/wiki/Citrus
 - Has testing framework (using rspec)
 - Supports gettext
 - Has dynamic re-loading plugins
+
+coderepos++
 
 * Citrus
 
