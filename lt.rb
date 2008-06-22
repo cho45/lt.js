@@ -108,6 +108,7 @@ gem install future
 * require "future"
 
 - Future をちょっと実装してみたもの
+- Future -> 未実行のものの代替オブジェクト
 
 >||
 # 即座にかえる
