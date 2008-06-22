@@ -60,15 +60,9 @@ EOS
 
 __END__
 
-* net-irc
+* Reject <- Inject
 
-- cho45
-- http://www.lowreal.net/
-- from Subtech
-- google 「ちんこ演算子の人」
-
-love git.
-
+- cho45 / http://www.lowreal.net/
 
 * Resh
 
@@ -89,12 +83,20 @@ http://coderepos.org/share/wiki/Resh
 
 * require "future"
 
-僕 NEET なんで……
+お先まっくら……
+
+未来の通しが欲しいです……
 
 
 * require "future"
 
 ノンノンノンノン
+
+
+* require "future"
+
+それはどうでもよくて
+
 
 * require "future"
 
@@ -102,19 +104,20 @@ http://coderepos.org/share/wiki/Resh
 gem install future
 ||<
 
-僕の未来も gem でインストールしたい
+僕も未来を gem でインストールしたい
 
 
 * require "future"
 
 - Future をちょっと実装してみたもの
 - Future -> 未実行のものの代替オブジェクト
+- see wikipedia
 
 >||
-# 即座にかえる
+# 即座にかえる f はまだ計算されていない
 f = Kernel.async.sleep(2)
 
-# まつ
+# 計算結果が即座に必要になればブロックする
 p f
 ||<
 
@@ -124,9 +127,16 @@ p f
 
 * require "future"
 
-何につかえるかわからないけどかっこくないですか!
+何かかっこくないですか!
 
-* require "future"
+Fiber 版も実装して、制御できるようにもしたい
 
-以上です。本当にありがとうございました!
+
+* require "ruby"
+
+以上です。
+
+RubyKaigi 本当にありがとうございました!
+
+
 
