@@ -64,10 +64,10 @@ __END__
 
 - cho45
 - http://www.lowreal.net/
-- from Subtech
 - google 「ちんこ演算子の人」
-
-love git.
+-- Chemr (きめぇwww)
+-- JSDeferred
+-- $X
 
 
 * Agenda
