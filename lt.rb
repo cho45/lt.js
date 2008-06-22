@@ -223,6 +223,9 @@ Distributed with net-irc. (examples/)
 
 examples なのはテスト書くのがめんどうだから……
 
+* 昨日書いたもの
+
+demo
 
 * Citrus IRC BOT framework
 
