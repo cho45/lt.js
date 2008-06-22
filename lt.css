@@ -8,12 +8,12 @@ html {
 
 body {
 	/* 800x600 にしたときの基準フォントサイズ */
-	font-size: 20px;
+	font-size: 30px;
 	background: #000;
 	color: #efefef;
 	overflow: hidden;
 	line-height: 2;
-	background: #000 url("images/javascript-study-meeting.png") no-repeat 0 center;
+	background: #000 url("wallpaper1280x960.png") no-repeat 0 100%;
 }
 
 a:link ,
@@ -55,8 +55,9 @@ hr {
 
 .slide {
 	position: absolute;
-	border: 1px solid #174c16;
+	border: 1px solid #fff;
 	background: #000;
+	opacity: 0.85;
 	overflow: auto;
 }
 
@@ -157,6 +158,14 @@ hr {
 	font-size: 70%;
 	color: #666;
 	text-align: right;
+}
+
+.slide div.title-leaf {
+	padding: 20% 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: 150%;
+	white-space: nowrap;
 }
 
 #Lt-information {
