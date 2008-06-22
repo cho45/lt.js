@@ -60,9 +60,16 @@ EOS
 
 __END__
 
-* Reject <- Inject
+* __REJECT_REJECT__
 
 - cho45 / http://www.lowreal.net/
+
+
+*
+
+><div class="title-leaf"><
+3:30秒間 ゆっくりしていってね!
+></div><
 
 * Resh
 
@@ -73,7 +80,10 @@ __END__
 
 * Resh
 
-http://coderepos.org/share/wiki/Resh
+-http://coderepos.org/share/wiki/Resh
+-http://coderepos.org/share/wiki/Resh
+-http://coderepos.org/share/wiki/Resh
+-http://coderepos.org/share/wiki/Resh
 
 ぜひ使ってください!
 
@@ -85,7 +95,7 @@ http://coderepos.org/share/wiki/Resh
 
 お先まっくら……
 
-未来の通しが欲しいです……
+未来の見通しが欲しいです……
 
 
 * require "future"
@@ -95,7 +105,7 @@ http://coderepos.org/share/wiki/Resh
 
 * require "future"
 
-それはどうでもよくて
+そんなどうでもいい話ではなくて
 
 
 * require "future"
@@ -105,6 +115,11 @@ gem install future
 ||<
 
 僕も未来を gem でインストールしたい
+
+
+* require "future"
+
+いやそんなどうでもいい話ではなくて
 
 
 * require "future"

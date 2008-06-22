@@ -196,3 +196,12 @@ hr {
 	width: 100%;
 	height: 100px;
 }
+
+.time {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0 1em;
+	font-size: 20px;
+	color: #fff;
+}
