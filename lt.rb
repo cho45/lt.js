@@ -60,11 +60,109 @@ EOS
 
 __END__
 
-* title
+* Pure DOM Constructor
 
-- cho45
-- http://www.lowreal.net/
-- from Subtech
-- google 「ちんこ演算子の人」
+- founder of laundrygirl
+- <a href="http://washer-in-the-rye.com/">http://wassr-in-the-rye.com/</a>
 
-love git.
+*
+
+><div class="title-leaf"><
+puredomconstructor を precuredaisuki って空目する
+></div><
+
+
+* Pure DOM Constructor
+
+ときどき jQuery より早い DOM 構築関数
+
+
+* どういうときに早いか?
+
+- 文字列から DOM を構築して、
+- その DOM のいろんなところに触りたいとき
+
+単純な innerHTML にはまず勝てないが総合力で勝負
+
+
+* ユースケース
+
+- JSON からエントリ HTML を生成するような場合
+
+
+* テンプレート (てきとう)
+
+>||
+&lt;div class="message">
+  &lt;div class="body">
+    &lt;p class="description">来週も見てくださいね!&lt;/p>
+
+    &lt;p class="messagefoot">
+      by &lt;a class="name" href="/user/yunocchi">yuno&lt;/a>
+      at &lt;a class="time">2008-07-25 (Fri) 02:00:38&lt;/a>
+      via &lt;a href="/status/?via=web">web&lt;/a>
+      &lt;a title="削除" href="/my/delete_status?status_rid=X365XX">del&lt;/a>
+      &lt;a class="res">レス&lt;/a>
+    &lt;/p>
+    &lt;div class="replies">
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+||<
+
+*
+
+- みたいなのを JS で生成して
+- 「レス」とか「削除」とかに JS 設定したい
+- replies 以下にさらに要素足したい
+- etc...
+
+* jQuery だと
+
+>||
+var ret =
+	$(template)
+	.find("a.res")
+		onclick(fun..)
+	.end()
+	.find("a.del")
+		.onclick(fun..)
+	.end()
+	.find("replies");
+
+for (var i = 0; i < replies.length; i++) {
+	ret.append(...)
+}
+||<
+
+* pdc だと
+
+>||
+var ret = dom(template, parent, data);
+ret.res.onclick = fun...;
+ret.del.onclick = fun...
+for (var i = 0; i < replies.length; i++) {
+	dom(template, ret.replies, replies[i]);
+}
+||<
+
+
+*
+
+- クラス名が設定された要素を保持しておいて返す
+- #{foobar} を引数を使って展開する
+
+
+* 
+
+- jQuery の find/end は遅いのでその分はやくなる
+- innerHTML は table 関係でハマりやすい
+
+
+* まとめ
+
+- そこそこ綺麗
+- そこそこ早い
+- を実現する
+
+http://svn.coderepos.org/share/lang/javascript/pdc/trunk
